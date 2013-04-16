@@ -4,37 +4,37 @@ part of reseller_v1sandbox_api_client;
 class Address {
 
   /** Address line 1 of the address. */
-  String addressLine1;
+  core.String addressLine1;
 
   /** Address line 2 of the address. */
-  String addressLine2;
+  core.String addressLine2;
 
   /** Address line 3 of the address. */
-  String addressLine3;
+  core.String addressLine3;
 
   /** Name of the contact person. */
-  String contactName;
+  core.String contactName;
 
   /** ISO 3166 country code. */
-  String countryCode;
+  core.String countryCode;
 
   /** Identifies the resource as a customer address. */
-  String kind;
+  core.String kind;
 
   /** Name of the locality. This is in accordance with - http://portablecontacts.net/draft-spec.html#address_element. */
-  String locality;
+  core.String locality;
 
   /** Name of the organization. */
-  String organizationName;
+  core.String organizationName;
 
   /** The postal code. This is in accordance with - http://portablecontacts.net/draft-spec.html#address_element. */
-  String postalCode;
+  core.String postalCode;
 
   /** Name of the region. This is in accordance with - http://portablecontacts.net/draft-spec.html#address_element. */
-  String region;
+  core.String region;
 
   /** Create new Address from JSON data */
-  Address.fromJson(Map json) {
+  Address.fromJson(core.Map json) {
     if (json.containsKey("addressLine1")) {
       addressLine1 = json["addressLine1"];
     }
@@ -68,8 +68,8 @@ class Address {
   }
 
   /** Create JSON Object for Address */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (addressLine1 != null) {
       output["addressLine1"] = addressLine1;
@@ -106,7 +106,7 @@ class Address {
   }
 
   /** Return String representation of Address */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -114,19 +114,19 @@ class Address {
 class ChangePlanRequest {
 
   /** Identifies the resource as a subscription change plan request. */
-  String kind;
+  core.String kind;
 
   /** Name of the plan to change to. */
-  String planName;
+  core.String planName;
 
   /** Purchase order id for your order tracking purposes. */
-  String purchaseOrderId;
+  core.String purchaseOrderId;
 
   /** Number/Limit of seats in the new plan. */
   Seats seats;
 
   /** Create new ChangePlanRequest from JSON data */
-  ChangePlanRequest.fromJson(Map json) {
+  ChangePlanRequest.fromJson(core.Map json) {
     if (json.containsKey("kind")) {
       kind = json["kind"];
     }
@@ -142,8 +142,8 @@ class ChangePlanRequest {
   }
 
   /** Create JSON Object for ChangePlanRequest */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (kind != null) {
       output["kind"] = kind;
@@ -162,7 +162,7 @@ class ChangePlanRequest {
   }
 
   /** Return String representation of ChangePlanRequest */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -170,25 +170,25 @@ class ChangePlanRequest {
 class Customer {
 
   /** The alternate email of the customer. */
-  String alternateEmail;
+  core.String alternateEmail;
 
   /** The domain name of the customer. */
-  String customerDomain;
+  core.String customerDomain;
 
   /** The id of the customer. */
-  String customerId;
+  core.String customerId;
 
   /** Identifies the resource as a customer. */
-  String kind;
+  core.String kind;
 
   /** The phone number of the customer. */
-  String phoneNumber;
+  core.String phoneNumber;
 
   /** The postal address of the customer. */
   Address postalAddress;
 
   /** Create new Customer from JSON data */
-  Customer.fromJson(Map json) {
+  Customer.fromJson(core.Map json) {
     if (json.containsKey("alternateEmail")) {
       alternateEmail = json["alternateEmail"];
     }
@@ -210,8 +210,8 @@ class Customer {
   }
 
   /** Create JSON Object for Customer */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (alternateEmail != null) {
       output["alternateEmail"] = alternateEmail;
@@ -236,7 +236,7 @@ class Customer {
   }
 
   /** Return String representation of Customer */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -244,13 +244,13 @@ class Customer {
 class RenewalSettings {
 
   /** Identifies the resource as a subscription renewal setting. */
-  String kind;
+  core.String kind;
 
   /** Subscription renewal type. */
-  String renewalType;
+  core.String renewalType;
 
   /** Create new RenewalSettings from JSON data */
-  RenewalSettings.fromJson(Map json) {
+  RenewalSettings.fromJson(core.Map json) {
     if (json.containsKey("kind")) {
       kind = json["kind"];
     }
@@ -260,8 +260,8 @@ class RenewalSettings {
   }
 
   /** Create JSON Object for RenewalSettings */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (kind != null) {
       output["kind"] = kind;
@@ -274,7 +274,7 @@ class RenewalSettings {
   }
 
   /** Return String representation of RenewalSettings */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -282,16 +282,16 @@ class RenewalSettings {
 class Seats {
 
   /** Identifies the resource as a subscription change plan request. */
-  String kind;
+  core.String kind;
 
   /** Maximum number of seats that can be purchased. This needs to be provided only for a non-commitment plan. For a commitment plan it is decided by the contract. */
-  int maximumNumberOfSeats;
+  core.int maximumNumberOfSeats;
 
   /** Number of seats to purchase. This is applicable only for a commitment plan. */
-  int numberOfSeats;
+  core.int numberOfSeats;
 
   /** Create new Seats from JSON data */
-  Seats.fromJson(Map json) {
+  Seats.fromJson(core.Map json) {
     if (json.containsKey("kind")) {
       kind = json["kind"];
     }
@@ -304,8 +304,8 @@ class Seats {
   }
 
   /** Create JSON Object for Seats */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (kind != null) {
       output["kind"] = kind;
@@ -321,7 +321,7 @@ class Seats {
   }
 
   /** Return String representation of Seats */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -329,19 +329,19 @@ class Seats {
 class Subscription {
 
   /** Creation time of this subscription in milliseconds since Unix epoch. */
-  String creationTime;
+  core.String creationTime;
 
   /** The id of the customer to whom the subscription belongs. */
-  String customerId;
+  core.String customerId;
 
   /** Identifies the resource as a Subscription. */
-  String kind;
+  core.String kind;
 
   /** Plan details of the subscription */
   SubscriptionPlan plan;
 
   /** Purchase order id for your order tracking purposes. */
-  String purchaseOrderId;
+  core.String purchaseOrderId;
 
   /** Renewal settings of the subscription. */
   RenewalSettings renewalSettings;
@@ -350,16 +350,16 @@ class Subscription {
   Seats seats;
 
   /** Name of the sku for which this subscription is purchased. */
-  String skuId;
+  core.String skuId;
 
   /** The id of the subscription. */
-  String subscriptionId;
+  core.String subscriptionId;
 
   /** Trial Settings of the subscription. */
   SubscriptionTrialSettings trialSettings;
 
   /** Create new Subscription from JSON data */
-  Subscription.fromJson(Map json) {
+  Subscription.fromJson(core.Map json) {
     if (json.containsKey("creationTime")) {
       creationTime = json["creationTime"];
     }
@@ -393,8 +393,8 @@ class Subscription {
   }
 
   /** Create JSON Object for Subscription */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (creationTime != null) {
       output["creationTime"] = creationTime;
@@ -431,7 +431,7 @@ class Subscription {
   }
 
   /** Return String representation of Subscription */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -442,13 +442,13 @@ class SubscriptionPlan {
   SubscriptionPlanCommitmentInterval commitmentInterval;
 
   /** Whether the plan is a commitment plan or not. */
-  bool isCommitmentPlan;
+  core.bool isCommitmentPlan;
 
   /** The plan name of this subscription's plan. */
-  String planName;
+  core.String planName;
 
   /** Create new SubscriptionPlan from JSON data */
-  SubscriptionPlan.fromJson(Map json) {
+  SubscriptionPlan.fromJson(core.Map json) {
     if (json.containsKey("commitmentInterval")) {
       commitmentInterval = new SubscriptionPlanCommitmentInterval.fromJson(json["commitmentInterval"]);
     }
@@ -461,8 +461,8 @@ class SubscriptionPlan {
   }
 
   /** Create JSON Object for SubscriptionPlan */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (commitmentInterval != null) {
       output["commitmentInterval"] = commitmentInterval.toJson();
@@ -478,7 +478,7 @@ class SubscriptionPlan {
   }
 
   /** Return String representation of SubscriptionPlan */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -486,13 +486,13 @@ class SubscriptionPlan {
 class SubscriptionPlanCommitmentInterval {
 
   /** End time of the commitment interval in milliseconds since Unix epoch. */
-  String endTime;
+  core.String endTime;
 
   /** Start time of the commitment interval in milliseconds since Unix epoch. */
-  String startTime;
+  core.String startTime;
 
   /** Create new SubscriptionPlanCommitmentInterval from JSON data */
-  SubscriptionPlanCommitmentInterval.fromJson(Map json) {
+  SubscriptionPlanCommitmentInterval.fromJson(core.Map json) {
     if (json.containsKey("endTime")) {
       endTime = json["endTime"];
     }
@@ -502,8 +502,8 @@ class SubscriptionPlanCommitmentInterval {
   }
 
   /** Create JSON Object for SubscriptionPlanCommitmentInterval */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (endTime != null) {
       output["endTime"] = endTime;
@@ -516,7 +516,7 @@ class SubscriptionPlanCommitmentInterval {
   }
 
   /** Return String representation of SubscriptionPlanCommitmentInterval */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -524,13 +524,13 @@ class SubscriptionPlanCommitmentInterval {
 class SubscriptionTrialSettings {
 
   /** Whether the subscription is in trial. */
-  bool isInTrial;
+  core.bool isInTrial;
 
   /** End time of the trial in milliseconds since Unix epoch. */
-  String trialEndTime;
+  core.String trialEndTime;
 
   /** Create new SubscriptionTrialSettings from JSON data */
-  SubscriptionTrialSettings.fromJson(Map json) {
+  SubscriptionTrialSettings.fromJson(core.Map json) {
     if (json.containsKey("isInTrial")) {
       isInTrial = json["isInTrial"];
     }
@@ -540,8 +540,8 @@ class SubscriptionTrialSettings {
   }
 
   /** Create JSON Object for SubscriptionTrialSettings */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (isInTrial != null) {
       output["isInTrial"] = isInTrial;
@@ -554,7 +554,7 @@ class SubscriptionTrialSettings {
   }
 
   /** Return String representation of SubscriptionTrialSettings */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -562,16 +562,16 @@ class SubscriptionTrialSettings {
 class Subscriptions {
 
   /** Identifies the resource as a collection of subscriptions. */
-  String kind;
+  core.String kind;
 
   /** The continuation token, used to page through large result sets. Provide this value in a subsequent request to return the next page of results. */
-  String nextPageToken;
+  core.String nextPageToken;
 
   /** The subscriptions in this page of results. */
-  List<Subscription> subscriptions;
+  core.List<Subscription> subscriptions;
 
   /** Create new Subscriptions from JSON data */
-  Subscriptions.fromJson(Map json) {
+  Subscriptions.fromJson(core.Map json) {
     if (json.containsKey("kind")) {
       kind = json["kind"];
     }
@@ -587,8 +587,8 @@ class Subscriptions {
   }
 
   /** Create JSON Object for Subscriptions */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (kind != null) {
       output["kind"] = kind;
@@ -597,7 +597,7 @@ class Subscriptions {
       output["nextPageToken"] = nextPageToken;
     }
     if (subscriptions != null) {
-      output["subscriptions"] = new List();
+      output["subscriptions"] = new core.List();
       subscriptions.forEach((item) {
         output["subscriptions"].add(item.toJson());
       });
@@ -607,7 +607,7 @@ class Subscriptions {
   }
 
   /** Return String representation of Subscriptions */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 

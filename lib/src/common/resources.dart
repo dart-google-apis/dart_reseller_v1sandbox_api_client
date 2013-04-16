@@ -12,13 +12,13 @@ class CustomersResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Customer> get(String customerId, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Customer> get(core.String customerId, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "customers/{customerId}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (customerId == null) paramErrors.add("customerId is required");
     if (customerId != null) urlParams["customerId"] = customerId;
     if (optParams != null) {
@@ -51,13 +51,13 @@ class CustomersResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Customer> insert(Customer request, {String customerAuthToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<Customer> insert(Customer request, {core.String customerAuthToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "customers";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (customerAuthToken != null) queryParams["customerAuthToken"] = customerAuthToken;
     if (optParams != null) {
       optParams.forEach((key, value) {
@@ -89,13 +89,13 @@ class CustomersResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Customer> patch(Customer request, String customerId, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Customer> patch(Customer request, core.String customerId, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "customers/{customerId}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (customerId == null) paramErrors.add("customerId is required");
     if (customerId != null) urlParams["customerId"] = customerId;
     if (optParams != null) {
@@ -128,13 +128,13 @@ class CustomersResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Customer> update(Customer request, String customerId, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Customer> update(Customer request, core.String customerId, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "customers/{customerId}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (customerId == null) paramErrors.add("customerId is required");
     if (customerId != null) urlParams["customerId"] = customerId;
     if (optParams != null) {
@@ -175,13 +175,13 @@ class SubscriptionsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Subscription> changePlan(ChangePlanRequest request, String customerId, String subscriptionId, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Subscription> changePlan(ChangePlanRequest request, core.String customerId, core.String subscriptionId, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "customers/{customerId}/subscriptions/{subscriptionId}/changePlan";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (customerId == null) paramErrors.add("customerId is required");
     if (customerId != null) urlParams["customerId"] = customerId;
     if (subscriptionId == null) paramErrors.add("subscriptionId is required");
@@ -218,13 +218,13 @@ class SubscriptionsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Subscription> changeRenewalSettings(RenewalSettings request, String customerId, String subscriptionId, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Subscription> changeRenewalSettings(RenewalSettings request, core.String customerId, core.String subscriptionId, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "customers/{customerId}/subscriptions/{subscriptionId}/changeRenewalSettings";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (customerId == null) paramErrors.add("customerId is required");
     if (customerId != null) urlParams["customerId"] = customerId;
     if (subscriptionId == null) paramErrors.add("subscriptionId is required");
@@ -261,13 +261,13 @@ class SubscriptionsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Subscription> changeSeats(Seats request, String customerId, String subscriptionId, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Subscription> changeSeats(Seats request, core.String customerId, core.String subscriptionId, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "customers/{customerId}/subscriptions/{subscriptionId}/changeSeats";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (customerId == null) paramErrors.add("customerId is required");
     if (customerId != null) urlParams["customerId"] = customerId;
     if (subscriptionId == null) paramErrors.add("subscriptionId is required");
@@ -308,13 +308,13 @@ class SubscriptionsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Map> delete(String customerId, String subscriptionId, String deletionType, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<core.Map> delete(core.String customerId, core.String subscriptionId, core.String deletionType, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "customers/{customerId}/subscriptions/{subscriptionId}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (customerId == null) paramErrors.add("customerId is required");
     if (customerId != null) urlParams["customerId"] = customerId;
     if (deletionType == null) paramErrors.add("deletionType is required");
@@ -354,13 +354,13 @@ class SubscriptionsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Subscription> get(String customerId, String subscriptionId, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Subscription> get(core.String customerId, core.String subscriptionId, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "customers/{customerId}/subscriptions/{subscriptionId}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (customerId == null) paramErrors.add("customerId is required");
     if (customerId != null) urlParams["customerId"] = customerId;
     if (subscriptionId == null) paramErrors.add("subscriptionId is required");
@@ -397,13 +397,13 @@ class SubscriptionsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Subscription> insert(Subscription request, String customerId, {String customerAuthToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<Subscription> insert(Subscription request, core.String customerId, {core.String customerAuthToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "customers/{customerId}/subscriptions";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (customerAuthToken != null) queryParams["customerAuthToken"] = customerAuthToken;
     if (customerId == null) paramErrors.add("customerId is required");
     if (customerId != null) urlParams["customerId"] = customerId;
@@ -441,13 +441,13 @@ class SubscriptionsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Subscriptions> list({String customerNamePrefix, int maxResults, String pageToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<Subscriptions> list({core.String customerNamePrefix, core.int maxResults, core.String pageToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "subscriptions";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (customerNamePrefix != null) queryParams["customerNamePrefix"] = customerNamePrefix;
     if (maxResults != null) queryParams["maxResults"] = maxResults;
     if (pageToken != null) queryParams["pageToken"] = pageToken;
@@ -481,13 +481,13 @@ class SubscriptionsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Subscription> startPaidService(String customerId, String subscriptionId, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Subscription> startPaidService(core.String customerId, core.String subscriptionId, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "customers/{customerId}/subscriptions/{subscriptionId}/startPaidService";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (customerId == null) paramErrors.add("customerId is required");
     if (customerId != null) urlParams["customerId"] = customerId;
     if (subscriptionId == null) paramErrors.add("subscriptionId is required");
