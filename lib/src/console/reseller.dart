@@ -4,10 +4,10 @@ part of reseller_v1sandbox_api_console;
 /** Lets you create and manage your customers and their subscriptions. */
 class Reseller extends ConsoleClient {
 
-  CustomersResource _customers;
-  CustomersResource get customers => _customers;
-  SubscriptionsResource _subscriptions;
-  SubscriptionsResource get subscriptions => _subscriptions;
+  CustomersResource_ _customers;
+  CustomersResource_ get customers => _customers;
+  SubscriptionsResource_ _subscriptions;
+  SubscriptionsResource_ get subscriptions => _subscriptions;
 
   /**
    * Data format for the response.
@@ -61,7 +61,7 @@ class Reseller extends ConsoleClient {
   Reseller([oauth2.OAuth2Console auth]) : super(auth) {
     basePath = "/apps/reseller/v1sandbox/";
     rootUrl = "https://www.googleapis.com:443/";
-    _customers = new CustomersResource(this);
-    _subscriptions = new SubscriptionsResource(this);
+    _customers = new CustomersResource_(this);
+    _subscriptions = new SubscriptionsResource_(this);
   }
 }
