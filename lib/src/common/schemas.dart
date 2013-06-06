@@ -329,7 +329,7 @@ class Seats {
 class Subscription {
 
   /** Creation time of this subscription in milliseconds since Unix epoch. */
-  core.String creationTime;
+  core.int creationTime;
 
   /** The id of the customer to whom the subscription belongs. */
   core.String customerId;
@@ -486,10 +486,10 @@ class SubscriptionPlan {
 class SubscriptionPlanCommitmentInterval {
 
   /** End time of the commitment interval in milliseconds since Unix epoch. */
-  core.String endTime;
+  core.int endTime;
 
   /** Start time of the commitment interval in milliseconds since Unix epoch. */
-  core.String startTime;
+  core.int startTime;
 
   /** Create new SubscriptionPlanCommitmentInterval from JSON data */
   SubscriptionPlanCommitmentInterval.fromJson(core.Map json) {
@@ -527,7 +527,7 @@ class SubscriptionTrialSettings {
   core.bool isInTrial;
 
   /** End time of the trial in milliseconds since Unix epoch. */
-  core.String trialEndTime;
+  core.int trialEndTime;
 
   /** Create new SubscriptionTrialSettings from JSON data */
   SubscriptionTrialSettings.fromJson(core.Map json) {

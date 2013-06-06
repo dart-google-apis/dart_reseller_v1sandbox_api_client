@@ -60,7 +60,7 @@ class Reseller extends BrowserClient {
 
   Reseller([oauth.OAuth2 auth]) : super(auth) {
     basePath = "/apps/reseller/v1sandbox/";
-    rootUrl = "https://www.googleapis.com:443/";
+    rootUrl = "https://www.googleapis.com/";
     _customers = new CustomersResource_(this);
     _subscriptions = new SubscriptionsResource_(this);
   }
