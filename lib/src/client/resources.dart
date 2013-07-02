@@ -13,7 +13,6 @@ class CustomersResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<Customer> get(core.String customerId, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "customers/{customerId}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -30,16 +29,13 @@ class CustomersResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new Customer.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new Customer.fromJson(data));
   }
 
   /**
@@ -52,7 +48,6 @@ class CustomersResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<Customer> insert(Customer request, {core.String customerAuthToken, core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "customers";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -68,16 +63,13 @@ class CustomersResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "POST", body: request.toString(), urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new Customer.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new Customer.fromJson(data));
   }
 
   /**
@@ -90,7 +82,6 @@ class CustomersResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<Customer> patch(Customer request, core.String customerId, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "customers/{customerId}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -107,16 +98,13 @@ class CustomersResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "PATCH", body: request.toString(), urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new Customer.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new Customer.fromJson(data));
   }
 
   /**
@@ -129,7 +117,6 @@ class CustomersResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<Customer> update(Customer request, core.String customerId, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "customers/{customerId}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -146,16 +133,13 @@ class CustomersResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "PUT", body: request.toString(), urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new Customer.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new Customer.fromJson(data));
   }
 }
 
@@ -176,7 +160,6 @@ class SubscriptionsResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<Subscription> changePlan(ChangePlanRequest request, core.String customerId, core.String subscriptionId, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "customers/{customerId}/subscriptions/{subscriptionId}/changePlan";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -195,16 +178,13 @@ class SubscriptionsResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "POST", body: request.toString(), urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new Subscription.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new Subscription.fromJson(data));
   }
 
   /**
@@ -219,7 +199,6 @@ class SubscriptionsResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<Subscription> changeRenewalSettings(RenewalSettings request, core.String customerId, core.String subscriptionId, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "customers/{customerId}/subscriptions/{subscriptionId}/changeRenewalSettings";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -238,16 +217,13 @@ class SubscriptionsResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "POST", body: request.toString(), urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new Subscription.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new Subscription.fromJson(data));
   }
 
   /**
@@ -262,7 +238,6 @@ class SubscriptionsResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<Subscription> changeSeats(Seats request, core.String customerId, core.String subscriptionId, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "customers/{customerId}/subscriptions/{subscriptionId}/changeSeats";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -281,16 +256,13 @@ class SubscriptionsResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "POST", body: request.toString(), urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new Subscription.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new Subscription.fromJson(data));
   }
 
   /**
@@ -309,7 +281,6 @@ class SubscriptionsResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<core.Map> delete(core.String customerId, core.String subscriptionId, core.String deletionType, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "customers/{customerId}/subscriptions/{subscriptionId}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -333,16 +304,12 @@ class SubscriptionsResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "DELETE", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(data))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response;
   }
 
   /**
@@ -355,7 +322,6 @@ class SubscriptionsResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<Subscription> get(core.String customerId, core.String subscriptionId, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "customers/{customerId}/subscriptions/{subscriptionId}";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -374,16 +340,13 @@ class SubscriptionsResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new Subscription.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new Subscription.fromJson(data));
   }
 
   /**
@@ -398,7 +361,6 @@ class SubscriptionsResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<Subscription> insert(Subscription request, core.String customerId, {core.String customerAuthToken, core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "customers/{customerId}/subscriptions";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -416,22 +378,23 @@ class SubscriptionsResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "POST", body: request.toString(), urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new Subscription.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new Subscription.fromJson(data));
   }
 
   /**
    * Lists subscriptions of a reseller, optionally filtered by a customer name prefix.
    *
+   * [customerAuthToken] - An auth token needed if the customer is not a resold customer of this reseller. Can be generated at https://www.google.com/a/cpanel/customer-domain/TransferToken.Optional.
+   *
    * [customerNamePrefix] - Prefix of the customer's domain name by which the subscriptions should be filtered. Optional
+   *
+   * [customer_id] - Id of the Customer
    *
    * [maxResults] - Maximum number of results to return
    *   Minimum: 1
@@ -441,14 +404,15 @@ class SubscriptionsResource_ extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  async.Future<Subscriptions> list({core.String customerNamePrefix, core.int maxResults, core.String pageToken, core.Map optParams}) {
-    var completer = new async.Completer();
+  async.Future<Subscriptions> list({core.String customerAuthToken, core.String customerNamePrefix, core.String customer_id, core.int maxResults, core.String pageToken, core.Map optParams}) {
     var url = "subscriptions";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
 
     var paramErrors = new core.List();
+    if (customerAuthToken != null) queryParams["customerAuthToken"] = customerAuthToken;
     if (customerNamePrefix != null) queryParams["customerNamePrefix"] = customerNamePrefix;
+    if (customer_id != null) queryParams["customer_id"] = customer_id;
     if (maxResults != null) queryParams["maxResults"] = maxResults;
     if (pageToken != null) queryParams["pageToken"] = pageToken;
     if (optParams != null) {
@@ -460,16 +424,13 @@ class SubscriptionsResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new Subscriptions.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new Subscriptions.fromJson(data));
   }
 
   /**
@@ -482,7 +443,6 @@ class SubscriptionsResource_ extends Resource {
    * [optParams] - Additional query parameters
    */
   async.Future<Subscription> startPaidService(core.String customerId, core.String subscriptionId, {core.Map optParams}) {
-    var completer = new async.Completer();
     var url = "customers/{customerId}/subscriptions/{subscriptionId}/startPaidService";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
@@ -501,16 +461,13 @@ class SubscriptionsResource_ extends Resource {
     }
 
     if (!paramErrors.isEmpty) {
-      completer.completeError(new core.ArgumentError(paramErrors.join(" / ")));
-      return completer.future;
+      throw new core.ArgumentError(paramErrors.join(" / "));
     }
 
     var response;
     response = _client.request(url, "POST", urlParams: urlParams, queryParams: queryParams);
-    response
-      .then((data) => completer.complete(new Subscription.fromJson(data)))
-      .catchError((e) { completer.completeError(e); return true; });
-    return completer.future;
+    return response
+      .then((data) => new Subscription.fromJson(data));
   }
 }
 

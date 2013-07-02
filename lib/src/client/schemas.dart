@@ -352,8 +352,14 @@ class Subscription {
   /** Name of the sku for which this subscription is purchased. */
   core.String skuId;
 
+  /** Status of the subscription. */
+  core.String status;
+
   /** The id of the subscription. */
   core.String subscriptionId;
+
+  /** Transfer related information for the subscription. */
+  SubscriptionTransferInfo transferInfo;
 
   /** Trial Settings of the subscription. */
   SubscriptionTrialSettings trialSettings;
@@ -361,7 +367,11 @@ class Subscription {
   /** Create new Subscription from JSON data */
   Subscription.fromJson(core.Map json) {
     if (json.containsKey("creationTime")) {
-      creationTime = json["creationTime"];
+      if(json["creationTime"] is core.String){
+        creationTime = core.int.parse(json["creationTime"]);
+      }else{
+        creationTime = json["creationTime"];
+      }
     }
     if (json.containsKey("customerId")) {
       customerId = json["customerId"];
@@ -384,8 +394,14 @@ class Subscription {
     if (json.containsKey("skuId")) {
       skuId = json["skuId"];
     }
+    if (json.containsKey("status")) {
+      status = json["status"];
+    }
     if (json.containsKey("subscriptionId")) {
       subscriptionId = json["subscriptionId"];
+    }
+    if (json.containsKey("transferInfo")) {
+      transferInfo = new SubscriptionTransferInfo.fromJson(json["transferInfo"]);
     }
     if (json.containsKey("trialSettings")) {
       trialSettings = new SubscriptionTrialSettings.fromJson(json["trialSettings"]);
@@ -420,8 +436,14 @@ class Subscription {
     if (skuId != null) {
       output["skuId"] = skuId;
     }
+    if (status != null) {
+      output["status"] = status;
+    }
     if (subscriptionId != null) {
       output["subscriptionId"] = subscriptionId;
+    }
+    if (transferInfo != null) {
+      output["transferInfo"] = transferInfo.toJson();
     }
     if (trialSettings != null) {
       output["trialSettings"] = trialSettings.toJson();
@@ -494,10 +516,18 @@ class SubscriptionPlanCommitmentInterval {
   /** Create new SubscriptionPlanCommitmentInterval from JSON data */
   SubscriptionPlanCommitmentInterval.fromJson(core.Map json) {
     if (json.containsKey("endTime")) {
-      endTime = json["endTime"];
+      if(json["endTime"] is core.String){
+        endTime = core.int.parse(json["endTime"]);
+      }else{
+        endTime = json["endTime"];
+      }
     }
     if (json.containsKey("startTime")) {
-      startTime = json["startTime"];
+      if(json["startTime"] is core.String){
+        startTime = core.int.parse(json["startTime"]);
+      }else{
+        startTime = json["startTime"];
+      }
     }
   }
 
@@ -535,7 +565,11 @@ class SubscriptionTrialSettings {
       isInTrial = json["isInTrial"];
     }
     if (json.containsKey("trialEndTime")) {
-      trialEndTime = json["trialEndTime"];
+      if(json["trialEndTime"] is core.String){
+        trialEndTime = core.int.parse(json["trialEndTime"]);
+      }else{
+        trialEndTime = json["trialEndTime"];
+      }
     }
   }
 
@@ -554,6 +588,39 @@ class SubscriptionTrialSettings {
   }
 
   /** Return String representation of SubscriptionTrialSettings */
+  core.String toString() => JSON.stringify(this.toJson());
+
+}
+
+/** Transfer related information for the subscription. */
+class SubscriptionTransferInfo {
+
+  /** Time when transfer token or intent to transfer will expire. */
+  core.int transferabilityExpirationTime;
+
+  /** Create new SubscriptionTransferInfo from JSON data */
+  SubscriptionTransferInfo.fromJson(core.Map json) {
+    if (json.containsKey("transferabilityExpirationTime")) {
+      if(json["transferabilityExpirationTime"] is core.String){
+        transferabilityExpirationTime = core.int.parse(json["transferabilityExpirationTime"]);
+      }else{
+        transferabilityExpirationTime = json["transferabilityExpirationTime"];
+      }
+    }
+  }
+
+  /** Create JSON Object for SubscriptionTransferInfo */
+  core.Map toJson() {
+    var output = new core.Map();
+
+    if (transferabilityExpirationTime != null) {
+      output["transferabilityExpirationTime"] = transferabilityExpirationTime;
+    }
+
+    return output;
+  }
+
+  /** Return String representation of SubscriptionTransferInfo */
   core.String toString() => JSON.stringify(this.toJson());
 
 }
