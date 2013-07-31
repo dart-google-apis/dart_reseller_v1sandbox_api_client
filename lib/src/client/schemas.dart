@@ -1,4 +1,4 @@
-part of reseller_v1sandbox_api_client;
+part of reseller_v1sandbox_api;
 
 /** JSON template for address of a customer. */
 class Address {
@@ -187,6 +187,9 @@ class Customer {
   /** The postal address of the customer. */
   Address postalAddress;
 
+  /** Ui url for customer resource. */
+  core.String resourceUiUrl;
+
   /** Create new Customer from JSON data */
   Customer.fromJson(core.Map json) {
     if (json.containsKey("alternateEmail")) {
@@ -206,6 +209,9 @@ class Customer {
     }
     if (json.containsKey("postalAddress")) {
       postalAddress = new Address.fromJson(json["postalAddress"]);
+    }
+    if (json.containsKey("resourceUiUrl")) {
+      resourceUiUrl = json["resourceUiUrl"];
     }
   }
 
@@ -230,6 +236,9 @@ class Customer {
     }
     if (postalAddress != null) {
       output["postalAddress"] = postalAddress.toJson();
+    }
+    if (resourceUiUrl != null) {
+      output["resourceUiUrl"] = resourceUiUrl;
     }
 
     return output;
@@ -346,6 +355,9 @@ class Subscription {
   /** Renewal settings of the subscription. */
   RenewalSettings renewalSettings;
 
+  /** Ui url for subscription resource. */
+  core.String resourceUiUrl;
+
   /** Number/Limit of seats in the new plan. */
   Seats seats;
 
@@ -367,11 +379,7 @@ class Subscription {
   /** Create new Subscription from JSON data */
   Subscription.fromJson(core.Map json) {
     if (json.containsKey("creationTime")) {
-      if(json["creationTime"] is core.String){
-        creationTime = core.int.parse(json["creationTime"]);
-      }else{
-        creationTime = json["creationTime"];
-      }
+      creationTime = (json["creationTime"] is core.String) ? core.int.parse(json["creationTime"]) : json["creationTime"];
     }
     if (json.containsKey("customerId")) {
       customerId = json["customerId"];
@@ -387,6 +395,9 @@ class Subscription {
     }
     if (json.containsKey("renewalSettings")) {
       renewalSettings = new RenewalSettings.fromJson(json["renewalSettings"]);
+    }
+    if (json.containsKey("resourceUiUrl")) {
+      resourceUiUrl = json["resourceUiUrl"];
     }
     if (json.containsKey("seats")) {
       seats = new Seats.fromJson(json["seats"]);
@@ -429,6 +440,9 @@ class Subscription {
     }
     if (renewalSettings != null) {
       output["renewalSettings"] = renewalSettings.toJson();
+    }
+    if (resourceUiUrl != null) {
+      output["resourceUiUrl"] = resourceUiUrl;
     }
     if (seats != null) {
       output["seats"] = seats.toJson();
@@ -516,18 +530,10 @@ class SubscriptionPlanCommitmentInterval {
   /** Create new SubscriptionPlanCommitmentInterval from JSON data */
   SubscriptionPlanCommitmentInterval.fromJson(core.Map json) {
     if (json.containsKey("endTime")) {
-      if(json["endTime"] is core.String){
-        endTime = core.int.parse(json["endTime"]);
-      }else{
-        endTime = json["endTime"];
-      }
+      endTime = (json["endTime"] is core.String) ? core.int.parse(json["endTime"]) : json["endTime"];
     }
     if (json.containsKey("startTime")) {
-      if(json["startTime"] is core.String){
-        startTime = core.int.parse(json["startTime"]);
-      }else{
-        startTime = json["startTime"];
-      }
+      startTime = (json["startTime"] is core.String) ? core.int.parse(json["startTime"]) : json["startTime"];
     }
   }
 
@@ -550,6 +556,43 @@ class SubscriptionPlanCommitmentInterval {
 
 }
 
+/** Transfer related information for the subscription. */
+class SubscriptionTransferInfo {
+
+  core.int minimumTransferableSeats;
+
+  /** Time when transfer token or intent to transfer will expire. */
+  core.int transferabilityExpirationTime;
+
+  /** Create new SubscriptionTransferInfo from JSON data */
+  SubscriptionTransferInfo.fromJson(core.Map json) {
+    if (json.containsKey("minimumTransferableSeats")) {
+      minimumTransferableSeats = json["minimumTransferableSeats"];
+    }
+    if (json.containsKey("transferabilityExpirationTime")) {
+      transferabilityExpirationTime = (json["transferabilityExpirationTime"] is core.String) ? core.int.parse(json["transferabilityExpirationTime"]) : json["transferabilityExpirationTime"];
+    }
+  }
+
+  /** Create JSON Object for SubscriptionTransferInfo */
+  core.Map toJson() {
+    var output = new core.Map();
+
+    if (minimumTransferableSeats != null) {
+      output["minimumTransferableSeats"] = minimumTransferableSeats;
+    }
+    if (transferabilityExpirationTime != null) {
+      output["transferabilityExpirationTime"] = transferabilityExpirationTime;
+    }
+
+    return output;
+  }
+
+  /** Return String representation of SubscriptionTransferInfo */
+  core.String toString() => JSON.stringify(this.toJson());
+
+}
+
 /** Trial Settings of the subscription. */
 class SubscriptionTrialSettings {
 
@@ -565,11 +608,7 @@ class SubscriptionTrialSettings {
       isInTrial = json["isInTrial"];
     }
     if (json.containsKey("trialEndTime")) {
-      if(json["trialEndTime"] is core.String){
-        trialEndTime = core.int.parse(json["trialEndTime"]);
-      }else{
-        trialEndTime = json["trialEndTime"];
-      }
+      trialEndTime = (json["trialEndTime"] is core.String) ? core.int.parse(json["trialEndTime"]) : json["trialEndTime"];
     }
   }
 
@@ -588,39 +627,6 @@ class SubscriptionTrialSettings {
   }
 
   /** Return String representation of SubscriptionTrialSettings */
-  core.String toString() => JSON.stringify(this.toJson());
-
-}
-
-/** Transfer related information for the subscription. */
-class SubscriptionTransferInfo {
-
-  /** Time when transfer token or intent to transfer will expire. */
-  core.int transferabilityExpirationTime;
-
-  /** Create new SubscriptionTransferInfo from JSON data */
-  SubscriptionTransferInfo.fromJson(core.Map json) {
-    if (json.containsKey("transferabilityExpirationTime")) {
-      if(json["transferabilityExpirationTime"] is core.String){
-        transferabilityExpirationTime = core.int.parse(json["transferabilityExpirationTime"]);
-      }else{
-        transferabilityExpirationTime = json["transferabilityExpirationTime"];
-      }
-    }
-  }
-
-  /** Create JSON Object for SubscriptionTransferInfo */
-  core.Map toJson() {
-    var output = new core.Map();
-
-    if (transferabilityExpirationTime != null) {
-      output["transferabilityExpirationTime"] = transferabilityExpirationTime;
-    }
-
-    return output;
-  }
-
-  /** Return String representation of SubscriptionTransferInfo */
   core.String toString() => JSON.stringify(this.toJson());
 
 }
@@ -646,10 +652,7 @@ class Subscriptions {
       nextPageToken = json["nextPageToken"];
     }
     if (json.containsKey("subscriptions")) {
-      subscriptions = [];
-      json["subscriptions"].forEach((item) {
-        subscriptions.add(new Subscription.fromJson(item));
-      });
+      subscriptions = json["subscriptions"].map((subscriptionsItem) => new Subscription.fromJson(subscriptionsItem)).toList();
     }
   }
 
@@ -664,10 +667,7 @@ class Subscriptions {
       output["nextPageToken"] = nextPageToken;
     }
     if (subscriptions != null) {
-      output["subscriptions"] = new core.List();
-      subscriptions.forEach((item) {
-        output["subscriptions"].add(item.toJson());
-      });
+      output["subscriptions"] = subscriptions.map((subscriptionsItem) => subscriptionsItem.toJson()).toList();
     }
 
     return output;
@@ -678,3 +678,16 @@ class Subscriptions {
 
 }
 
+core.Map _mapMap(core.Map source, [core.Object convert(core.Object source) = null]) {
+  assert(source != null);
+  var result = new dart_collection.LinkedHashMap();
+  source.forEach((core.String key, value) {
+    assert(key != null);
+    if(convert == null) {
+      result[key] = value;
+    } else {
+      result[key] = convert(value);
+    }
+  });
+  return result;
+}

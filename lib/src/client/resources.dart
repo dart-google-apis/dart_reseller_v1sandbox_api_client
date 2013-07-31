@@ -1,9 +1,11 @@
-part of reseller_v1sandbox_api_client;
+part of reseller_v1sandbox_api;
 
-class CustomersResource_ extends Resource {
+class CustomersResource_ {
 
-  CustomersResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  CustomersResource_(Client client) :
+      _client = client;
 
   /**
    * Gets a customer resource if one exists and is owned by the reseller.
@@ -143,10 +145,12 @@ class CustomersResource_ extends Resource {
   }
 }
 
-class SubscriptionsResource_ extends Resource {
+class SubscriptionsResource_ {
 
-  SubscriptionsResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  SubscriptionsResource_(Client client) :
+      _client = client;
 
   /**
    * Changes the plan of a subscription
@@ -392,9 +396,9 @@ class SubscriptionsResource_ extends Resource {
    *
    * [customerAuthToken] - An auth token needed if the customer is not a resold customer of this reseller. Can be generated at https://www.google.com/a/cpanel/customer-domain/TransferToken.Optional.
    *
-   * [customerNamePrefix] - Prefix of the customer's domain name by which the subscriptions should be filtered. Optional
+   * [customerId] - Id of the Customer
    *
-   * [customer_id] - Id of the Customer
+   * [customerNamePrefix] - Prefix of the customer's domain name by which the subscriptions should be filtered. Optional
    *
    * [maxResults] - Maximum number of results to return
    *   Minimum: 1
@@ -404,15 +408,15 @@ class SubscriptionsResource_ extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  async.Future<Subscriptions> list({core.String customerAuthToken, core.String customerNamePrefix, core.String customer_id, core.int maxResults, core.String pageToken, core.Map optParams}) {
+  async.Future<Subscriptions> list({core.String customerAuthToken, core.String customerId, core.String customerNamePrefix, core.int maxResults, core.String pageToken, core.Map optParams}) {
     var url = "subscriptions";
     var urlParams = new core.Map();
     var queryParams = new core.Map();
 
     var paramErrors = new core.List();
     if (customerAuthToken != null) queryParams["customerAuthToken"] = customerAuthToken;
+    if (customerId != null) queryParams["customerId"] = customerId;
     if (customerNamePrefix != null) queryParams["customerNamePrefix"] = customerNamePrefix;
-    if (customer_id != null) queryParams["customer_id"] = customer_id;
     if (maxResults != null) queryParams["maxResults"] = maxResults;
     if (pageToken != null) queryParams["pageToken"] = pageToken;
     if (optParams != null) {

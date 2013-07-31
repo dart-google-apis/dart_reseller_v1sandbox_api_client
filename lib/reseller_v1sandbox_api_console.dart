@@ -1,14 +1,15 @@
-library reseller_v1sandbox_api_console;
+library reseller_v1sandbox_api.console;
 
-import "reseller_v1sandbox_api_client.dart";
-export "reseller_v1sandbox_api_client.dart";
-
-import "dart:core" as core;
-import "dart:io" as io;
-import "dart:async" as async;
-import "dart:json" as JSON;
-import "package:http/http.dart" as http;
 import "package:google_oauth2_client/google_oauth2_console.dart" as oauth2;
 
-part "src/console/console_client.dart";
-part "src/console/reseller.dart";
+import 'package:google_reseller_v1sandbox_api/src/cloud_api_console.dart';
+
+import "package:google_reseller_v1sandbox_api/reseller_v1sandbox_api_client.dart";
+
+/** Lets you create and manage your customers and their subscriptions. */
+class Reseller extends Client with ConsoleClient {
+
+  final oauth2.OAuth2Console auth;
+
+  Reseller([oauth2.OAuth2Console this.auth]);
+}
