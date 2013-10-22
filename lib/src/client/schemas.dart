@@ -106,7 +106,7 @@ class Address {
   }
 
   /** Return String representation of Address */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -162,7 +162,7 @@ class ChangePlanRequest {
   }
 
   /** Return String representation of ChangePlanRequest */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -245,7 +245,7 @@ class Customer {
   }
 
   /** Return String representation of Customer */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -283,7 +283,7 @@ class RenewalSettings {
   }
 
   /** Return String representation of RenewalSettings */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -330,7 +330,7 @@ class Seats {
   }
 
   /** Return String representation of Seats */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -467,7 +467,7 @@ class Subscription {
   }
 
   /** Return String representation of Subscription */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -514,7 +514,7 @@ class SubscriptionPlan {
   }
 
   /** Return String representation of SubscriptionPlan */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -552,7 +552,7 @@ class SubscriptionPlanCommitmentInterval {
   }
 
   /** Return String representation of SubscriptionPlanCommitmentInterval */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -589,7 +589,7 @@ class SubscriptionTransferInfo {
   }
 
   /** Return String representation of SubscriptionTransferInfo */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -627,7 +627,7 @@ class SubscriptionTrialSettings {
   }
 
   /** Return String representation of SubscriptionTrialSettings */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -674,7 +674,7 @@ class Subscriptions {
   }
 
   /** Return String representation of Subscriptions */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
