@@ -6,6 +6,7 @@ import 'package:google_reseller_v1sandbox_api/src/browser_client.dart';
 import "package:google_reseller_v1sandbox_api/reseller_v1sandbox_api_client.dart";
 
 /** Lets you create and manage your customers and their subscriptions. */
+@deprecated
 class Reseller extends Client with BrowserClient {
 
   /** OAuth Scope2: Manage users on your domain */
